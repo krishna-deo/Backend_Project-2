@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const ledger = require("../models/ledger")
 const accountSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
@@ -26,6 +26,10 @@ const accountSchema = new mongoose.Schema({
 })
 
 accountSchema.index({user: 1, status: 1})
+
+accountSchema.methods.getBalance =  async functin(){
+
+}
 
 const accountModel = mongoose.model("account", accountSchema)
 

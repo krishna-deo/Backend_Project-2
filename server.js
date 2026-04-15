@@ -18,12 +18,14 @@ connectDB();
  */
 const authRoutes = require("./src/routes/auth.routes");
 const accountRoutes =  require("./src/routes/account.routes");
+const transactionRoutes = require("./src/routes/transaction.routes");
 
 /**
  * - Use Routes
  */
 app.use('/api/auth', authRoutes)
 app.use('/api/account', accountRoutes)
+app.use('/api/account', transactionRoutes)
 
 
 app.listen(3000, ()=>{
