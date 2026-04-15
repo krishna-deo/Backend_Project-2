@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const authMiddleware= require("../middleware/auth.middleware")
-const accountController = require("../controllers/account.controller")
+
+
+const {authMiddleware} = require("../middleware/auth.middleware")
+const {createAccountController} = require("../controllers/account.controller")
 
 /**
  * - POST /api/accounts/
  * - Create a new account
  * - Protected Router
  */
-router.post('/', authMiddleware.authMiddleware, accountController)
+router.post('/', authMiddleware, createAccountController)
 
 module.exports = router;

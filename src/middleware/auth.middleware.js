@@ -9,12 +9,17 @@ const authMiddleware= async(req, res, next)=>{
             message:"Unauthorized access, token is missing"
         })
     }
-
+    
     try{
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
-        const user = await userModel.findById(decoded.userID)
+        const user = await userModel.findById(decoded.userId)
 
         req.user = user
+        if(!user){
+            return res.status(401).json({
+                message: "user not found"
+            })
+        }
         return next()
     }catch(err){
         return res.status(401).json({
