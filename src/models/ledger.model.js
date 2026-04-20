@@ -9,15 +9,15 @@ const ledgerSchema = new mongoose.Schema({
     },
     ammount:{
         type: Number,
-        required: [True, "Amount must be required for creating a ledger entry."],
+        required: [true, "Amount must be required for creating a ledger entry."],
         immutable: true
     },
     transaction:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"transaction",
-        required:[True,"Ledger must be associated with a transaction."],
-        index: True,
-        immutable: True
+        required:[true,"Ledger must be associated with a transaction."],
+        index: true,
+        immutable: true
     },
     type:{
         type: String,
@@ -25,8 +25,8 @@ const ledgerSchema = new mongoose.Schema({
             values:["CREDIT","DEBIT"],
             message: "Type can be either CREDIT or DEBIT",
         },
-        required:[True,"Ledger type is required."],
-        immutable: True
+        required:[true,"Ledger type is required."],
+        immutable: true
     }
 
 })
