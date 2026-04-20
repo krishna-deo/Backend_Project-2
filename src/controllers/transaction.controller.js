@@ -210,7 +210,7 @@ const createInitialFundsTransaction= async(req, res)=>{
     session.endSession()
 
     return res.status(201).json({
-        message: "Initial funds transaction completed successfully",
+        message: "Initial funds transactsion completed successfully",
         transaction: transaction
     })
 
